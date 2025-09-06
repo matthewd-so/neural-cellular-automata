@@ -1,0 +1,29 @@
+# Flagship experiment: flower target on a 128x128 grid (16,384 cells),
+# trained with the damage curriculum for single-seed growth + regeneration.
+target: flower
+target_size: 40
+grid_size: 128        # simulation/evaluation grid: 16,384 cells
+train_grid_size: 72   # translation-invariant rule -> train on a cropped grid
+
+channels: 16
+hidden_dim: 128
+fire_rate: 0.5
+alive_threshold: 0.1
+
+pool_size: 1024
+batch_size: 8
+steps_min: 64
+steps_max: 96
+iterations: 8000
+lr: 2.0e-3
+lr_decay_at: 2000
+lr_decay: 0.1
+
+damage_n: 3
+severe_damage_n: 1
+severe_keep_frac: 0.2
+
+seed: 0
+device: auto
+checkpoint_dir: checkpoints
+log_every: 100

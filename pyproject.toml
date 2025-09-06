@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "morphogenesis"
+version = "1.0.0"
+description = "Self-organizing morphogenesis engine built on Neural Cellular Automata"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Matthew So" }]
+dependencies = [
+    "torch>=2.0",
+    "numpy>=1.24",
+    "pillow>=10.0",
+    "scikit-image>=0.21",
+    "pyyaml>=6.0",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+morphogenesis = "morphogenesis.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["morphogenesis*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "trained: tests that require the trained flagship checkpoint",
+]
