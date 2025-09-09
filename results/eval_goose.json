@@ -1,0 +1,44 @@
+{
+  "checkpoint": "checkpoints/goose.pt",
+  "target": "goose",
+  "grid_size": 128,
+  "n_cells": 16384,
+  "model_parameters": 8320,
+  "n_trials": 5,
+  "ssim_growth": {
+    "mean": 0.988,
+    "min": 0.9855,
+    "max": 0.9892,
+    "trials": [
+      0.9892,
+      0.9885,
+      0.9889,
+      0.9855,
+      0.988
+    ]
+  },
+  "ssim_after_80pct_random_destruction": {
+    "mean": 0.9922,
+    "min": 0.9906,
+    "max": 0.9941,
+    "trials": [
+      0.9914,
+      0.9941,
+      0.9934,
+      0.9906,
+      0.9912
+    ]
+  },
+  "ssim_after_80pct_fragment_only": {
+    "mean": 0.9806,
+    "min": 0.9612,
+    "max": 0.9898,
+    "trials": [
+      0.9612,
+      0.9898,
+      0.9844,
+      0.9808,
+      0.9868
+    ]
+  }
+}
