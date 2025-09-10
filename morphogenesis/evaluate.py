@@ -11,6 +11,10 @@ For a trained checkpoint this measures, over `n_trials` independent runs:
 
 All SSIM values use scikit-image's reference implementation over the full
 grid rendered on a white background.
+
+Both sources of randomness are seeded: the damage draws (per trial) and the
+CA's own stochastic firing (once, from `seed`), so a given checkpoint and
+`seed` reproduce the same report on the same device.
 """
 
 from __future__ import annotations
@@ -18,12 +22,18 @@ from __future__ import annotations
 import statistics
 from pathlib import Path
 
+import torch
+
 from morphogenesis.simulation import Simulation
 
 
 def evaluate(checkpoint: str | Path, n_trials: int = 10,
-             device: str | None = None) -> dict:
+             device: str | None = None, seed: int = 0) -> dict:
     sim = Simulation.from_checkpoint(checkpoint, device=device)
+
+    # The CA fires stochastically, so the dynamics need seeding too, not just
+    # the damage draws below.
+    torch.manual_seed(seed)
 
     growth, random80, fragment = [], [], []
     for trial in range(n_trials):
@@ -59,6 +69,7 @@ def evaluate(checkpoint: str | Path, n_trials: int = 10,
         "n_cells": sim.n_cells,
         "model_parameters": sim.model.num_parameters(),
         "n_trials": n_trials,
+        "seed": seed,
         "ssim_growth": stats(growth),
         "ssim_after_80pct_random_destruction": stats(random80),
         "ssim_after_80pct_fragment_only": stats(fragment),

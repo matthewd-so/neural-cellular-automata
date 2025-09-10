@@ -90,7 +90,8 @@ def cmd_regen(args: argparse.Namespace) -> None:
 def cmd_eval(args: argparse.Namespace) -> None:
     """Full evaluation protocol; prints a JSON report."""
     from morphogenesis.evaluate import evaluate
-    report = evaluate(args.checkpoint, n_trials=args.trials, device=args.device)
+    report = evaluate(args.checkpoint, n_trials=args.trials, device=args.device,
+                      seed=args.seed)
     print(json.dumps(report, indent=2))
     if args.out:
         Path(args.out).parent.mkdir(parents=True, exist_ok=True)
@@ -149,6 +150,8 @@ def build_parser() -> argparse.ArgumentParser:
     e = sub.add_parser("eval", help="run the full evaluation protocol")
     add_common(e)
     e.add_argument("--trials", type=int, default=10)
+    e.add_argument("--seed", type=int, default=0,
+                   help="seed for the CA dynamics (damage draws are seeded per trial)")
     e.add_argument("--out", help="write JSON report here")
     e.set_defaults(func=cmd_eval)
 
