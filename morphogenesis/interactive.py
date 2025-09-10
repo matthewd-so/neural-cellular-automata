@@ -2,12 +2,12 @@
 
 Opens a matplotlib window running the CA live:
 
-  * click (or drag)  — blast a hole where you click
-  * D                — destroy 80% of living cells at random
-  * F                — wipe everything but one ~20% fragment
-  * R                — reset to a single seed
-  * space            — pause / resume
-  * Q                — quit
+  * click (or drag): blast a hole where you click
+  * D:                destroy 80% of living cells at random
+  * F:                wipe everything but one ~20% fragment
+  * R:                reset to a single seed
+  * space:            pause / resume
+  * Q:                quit
 
 The title bar shows step count, living-cell count, and live SSIM.
 """

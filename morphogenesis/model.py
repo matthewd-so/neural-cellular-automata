@@ -5,14 +5,14 @@ visible RGBA (alpha doubles as the "alive" signal); the rest are hidden
 channels the cells are free to use as chemical signals.
 
 One CA step:
-  1. Perception  — each cell concatenates its state with Sobel-x / Sobel-y
+  1. Perception:   each cell concatenates its state with Sobel-x / Sobel-y
                    estimates of the local state gradient (fixed, not learned).
-  2. Update rule — a small per-cell MLP (two 1x1 convolutions) maps the
+  2. Update rule:  a small per-cell MLP (two 1x1 convolutions) maps the
                    perception vector to a state delta. The final layer is
                    zero-initialized so the untrained CA is the identity.
-  3. Stochastic update — each cell applies its delta with prob `fire_rate`,
+  3. Stochastic update: each cell applies its delta with prob `fire_rate`,
                    breaking global synchrony.
-  4. Alive masking — cells with no mature neighbor (alpha > threshold in a
+  4. Alive masking: cells with no mature neighbor (alpha > threshold in a
                    3x3 neighborhood) are zeroed: growth can only proceed
                    outward from living tissue.
 """

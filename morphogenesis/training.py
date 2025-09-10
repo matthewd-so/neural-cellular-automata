@@ -9,8 +9,8 @@ The training recipe that makes regeneration work:
 * The worst sample in each batch is replaced with a fresh seed (so growing
   from scratch is never forgotten).
 * A **damage curriculum**: some of the best samples are damaged before
-  training — circular blasts, plus a severe variant that keeps only a small
-  fragment — so the CA explicitly learns to regenerate from the kind of
+  training (circular blasts, plus a severe variant that keeps only a small
+  fragment), so the CA explicitly learns to regenerate from the kind of
   destruction we evaluate on.
 """
 

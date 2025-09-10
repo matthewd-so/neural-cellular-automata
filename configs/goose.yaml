@@ -1,5 +1,5 @@
 # Second trained target: the University of Waterloo campus goose.
-# Same engine, same recipe — demonstrates multi-target support.
+# Same engine, same recipe; demonstrates multi-target support.
 target: goose
 target_size: 40
 grid_size: 128

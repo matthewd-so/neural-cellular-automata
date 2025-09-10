@@ -5,7 +5,7 @@ These verify the headline claims end to end:
   * 16,000+ cells in the simulation grid
   * a target grows from a single seed cell
   * after 80% of the pattern is destroyed, the CA regenerates the whole
-    image back to >= 0.90 SSIM — for random destruction and for
+    image back to >= 0.90 SSIM, for random destruction and for
     single-surviving-fragment destruction
   * the pattern is stable (persists) over long horizons
 

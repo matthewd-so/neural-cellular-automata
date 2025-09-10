@@ -1,4 +1,4 @@
-"""Self-Organizing Morphogenesis Engine — Neural Cellular Automata.
+"""Self-Organizing Morphogenesis Engine: Neural Cellular Automata.
 
 A PyTorch implementation of differentiable morphogenesis: a grid of cells,
 each running an identical learned update rule, grows a target image from a

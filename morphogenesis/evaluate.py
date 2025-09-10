@@ -2,10 +2,10 @@
 
 For a trained checkpoint this measures, over `n_trials` independent runs:
 
-  1. **Growth** — grow from a single seed for 96 steps; SSIM vs. target.
-  2. **Random 80% destruction** — destroy 80% of living cells uniformly at
+  1. **Growth**: grow from a single seed for 96 steps; SSIM vs. target.
+  2. **Random 80% destruction**: destroy 80% of living cells uniformly at
      random, run 200 recovery steps; SSIM vs. target.
-  3. **Fragment regeneration** — keep only one contiguous fragment holding
+  3. **Fragment regeneration**: keep only one contiguous fragment holding
      ~20% of the living cells (i.e. 80% destroyed), run 300 recovery steps;
      SSIM vs. target.
 

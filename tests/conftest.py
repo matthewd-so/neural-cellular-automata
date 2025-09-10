@@ -10,7 +10,7 @@ FLAGSHIP_CHECKPOINT = REPO_ROOT / "checkpoints" / "flower.pt"
 def flagship_checkpoint() -> Path:
     if not FLAGSHIP_CHECKPOINT.exists():
         pytest.skip(
-            "trained checkpoint missing — run: "
+            "trained checkpoint missing, run: "
             "python -m morphogenesis train --config configs/flower.yaml"
         )
     return FLAGSHIP_CHECKPOINT
