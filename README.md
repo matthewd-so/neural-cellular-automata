@@ -1,6 +1,6 @@
 # Self-Organizing Morphogenesis Engine
 
-**Neural Cellular Automata that grow images from a single seed and regrow them after you destroy 80% of the cells.**
+**Neural Cellular Automata that grow images from a single seed and regrow them after you damage the grid.**
 
 A PyTorch implementation of differentiable morphogenesis, built as a
 configurable simulation engine: multiple targets, pluggable damage models,
@@ -175,3 +175,13 @@ configs/          # experiment configs
 checkpoints/      # trained weights (33 KB each, the whole organism)
 tests/            # unit tests + claim tests (pytest)
 ```
+
+## Background
+
+The Sobel perception vector, stochastic per-cell firing, alive masking and
+the persistent sample pool were inspired by Mordvintsev, Randazzo, Niklasson
+and Levin, ["Growing Neural Cellular Automata"](https://research.google/pubs/growing-neural-cellular-automata/)
+(Distill, 2020), which is implemented in TensorFlow. I put my own spin on it
+in PyTorch to learn the framework, then added the missing pieces: the
+simulation engine, the damage models, the procedural targets, the evaluation
+protocol, the test suite and the CLI.
